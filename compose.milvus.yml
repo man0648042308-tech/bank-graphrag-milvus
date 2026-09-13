@@ -1,0 +1,76 @@
+name: day3536-milvus-stack
+
+services:
+  etcd:
+    container_name: day3536-milvus-etcd
+    image: quay.io/coreos/etcd:v3.5.25
+    environment:
+      ETCD_AUTO_COMPACTION_MODE: revision
+      ETCD_AUTO_COMPACTION_RETENTION: "1000"
+      ETCD_QUOTA_BACKEND_BYTES: "4294967296"
+      ETCD_SNAPSHOT_COUNT: "50000"
+    volumes:
+      - day3536_milvus_etcd:/etcd
+    command:
+      - etcd
+      - --advertise-client-urls=http://etcd:2379
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --data-dir=/etcd
+    healthcheck:
+      test: ["CMD", "etcdctl", "endpoint", "health"]
+      interval: 30s
+      timeout: 20s
+      retries: 5
+
+  minio:
+    container_name: day3536-milvus-minio
+    image: minio/minio:RELEASE.2024-12-18T13-15-44Z
+    environment:
+      MINIO_ROOT_USER: ${DAY3536_MINIO_USER:?由启动脚本临时生成}
+      MINIO_ROOT_PASSWORD: ${DAY3536_MINIO_PASSWORD:?由启动脚本临时生成}
+    volumes:
+      - day3536_milvus_minio:/minio_data
+    command: minio server /minio_data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 5
+
+  standalone:
+    container_name: day3536-milvus-standalone
+    image: milvusdb/milvus:v2.6.17
+    command: ["milvus", "run", "standalone"]
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: minio:9000
+      MINIO_ACCESS_KEY_ID: ${DAY3536_MINIO_USER:?由启动脚本临时生成}
+      MINIO_SECRET_ACCESS_KEY: ${DAY3536_MINIO_PASSWORD:?由启动脚本临时生成}
+      MQ_TYPE: woodpecker
+    volumes:
+      - day3536_milvus_data:/var/lib/milvus
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      start_period: 90s
+      timeout: 20s
+      retries: 5
+    ports:
+      - "19531:19530"
+      - "9092:9091"
+    depends_on:
+      - etcd
+      - minio
+
+volumes:
+  day3536_milvus_etcd:
+    name: day3536_milvus_etcd
+    external: true
+  day3536_milvus_minio:
+    name: day3536_milvus_minio
+    external: true
+  day3536_milvus_data:
+    name: day3536_milvus_data
+    external: true
