@@ -39,3 +39,4 @@ class QueryResult:
     generated_query: str
     rows: tuple[dict[str, object], ...]
 
+

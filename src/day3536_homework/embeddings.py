@@ -34,3 +34,4 @@ def cosine_similarity(left: list[float], right: list[float]) -> float:
         raise ValueError("两个向量维度必须一致")
     return sum(a * b for a, b in zip(left, right, strict=True))
 
+
