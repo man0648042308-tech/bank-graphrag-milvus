@@ -6,3 +6,4 @@ from .embeddings import build_query_vector
 __all__ = ["build_query_vector", "eligible_products"]
 
 
+

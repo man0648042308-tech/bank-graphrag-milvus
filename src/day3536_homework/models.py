@@ -40,3 +40,4 @@ class QueryResult:
     rows: tuple[dict[str, object], ...]
 
 
+
