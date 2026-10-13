@@ -1,6 +1,6 @@
 > 本仓库为个人作品集公开版：AI 大模型应用开发课程实战项目，模拟数据，非生产系统。更多项目见作品集主页。
 
-# Day35 & Day36 银行 GraphRAG 作业
+# & 银行 GraphRAG 作业
 
 这是一个可提交、可运行、可测试、可逐步复现的学习工程，覆盖原题 8 项要求：
 
@@ -15,7 +15,7 @@
 
 ## 先看哪个文件
 
-- 交作业：`Day35&Day36作业_提交版.md`
+- 交作业：`&作业_提交版.md`
 - 不知道从哪里读：`docs/00_项目全景与阅读索引.md`
 - 从零运行：`docs/01_逐步复现操作手册.md`
 - 基础概念：`docs/02_核心概念逐词讲解.md`
@@ -30,11 +30,11 @@
 在 PowerShell 中：
 
 ```powershell
-Set-Location "./Day35_Day36_GraphRAG_Homework"
+Set-Location "./_Day36_GraphRAG_project"
 $env:PYTHONIOENCODING = "utf-8"
 uv sync --python 3.12
 uv run python -m pytest -q
-uv run python -m day3536_homework.main
+uv run python -m _project.main
 ```
 
 预期：27 项测试通过；主程序输出 `P005、P001、P002`，不出现 `P003、P004`。
@@ -55,5 +55,6 @@ uv run python ".\tests\verify_milvus_integration.py"
 - 数据全部为虚构教学数据，不是真实客户数据。
 - `.env`、密码、Token 不进入仓库。
 - NL2SQL/NL2Cypher 采用“生成 → AST/规则校验 → 白名单 → LIMIT → 执行”，不允许模型文本直接进入数据库。
-- 删除仅允许作用于以 `day3536_` 开头的 Milvus collection；Neo4j 只清理带 `dataset_id:'day3536'` 的节点。
+- 删除仅允许作用于以 `_` 开头的 Milvus collection；Neo4j 只清理带 `dataset_id:''` 的节点。
 - AI 已完成工程和验证，不等于学习者已经掌握；独立能力以闭卷复现、故障恢复和口述证据为准。
+

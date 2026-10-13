@@ -38,3 +38,4 @@ class QueryResult:
     natural_language: str
     generated_query: str
     rows: tuple[dict[str, object], ...]
+
