@@ -1,4 +1,4 @@
-"""Small, explicit data models shared by the homework modules."""
+"""Small, explicit data models shared by the project modules."""
 
 from dataclasses import dataclass, field
 

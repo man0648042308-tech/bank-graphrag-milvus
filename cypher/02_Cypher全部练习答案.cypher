@@ -17,7 +17,7 @@ SET a.dataset_id='day3536', a.balance=60000.0
 MERGE (c)-[:HOLDS]->(a)
 RETURN c.customer_id AS customer_id, a.account_id AS account_id;
 
-// 1.4 在作业数据范围内更新；删除动作改为返回候选，避免破坏后续验收
+// 1.4 在项目数据范围内更新；删除动作改为返回候选，避免破坏后续验收
 MATCH (t:Transaction {dataset_id:'day3536', transaction_id:'T004'})
 SET t.review_status='已复核'
 RETURN t.transaction_id AS transaction_id, t.review_status AS review_status;

@@ -53,7 +53,7 @@ if (-not $gdsReady) {
     if ($LASTEXITCODE -ne 0) { throw "GDS 插件写入命名卷失败" }
 }
 
-Write-Host "[2/4] 启动本作业专用 Neo4j（端口 7475/7688）"
+Write-Host "[2/4] 启动本项目专用 Neo4j（端口 7475/7688）"
 docker compose -f compose.neo4j.yml up -d
 if ($LASTEXITCODE -ne 0) { throw "Neo4j 容器启动失败" }
 

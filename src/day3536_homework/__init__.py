@@ -1,4 +1,4 @@
-"""Day35/Day36 banking GraphRAG homework package."""
+"""Day35/Day36 banking GraphRAG project package."""
 
 from .business_rules import eligible_products
 from .embeddings import build_query_vector

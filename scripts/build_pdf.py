@@ -302,7 +302,7 @@ def page_decor(canvas, document) -> None:  # type: ignore[no-untyped-def]
         canvas.line(17 * mm, height - 15 * mm, width - 17 * mm, height - 15 * mm)
         canvas.setFont("CN", 7.5)
         canvas.setFillColor(MID_GRAY)
-        canvas.drawString(17 * mm, height - 11.5 * mm, "银行 GraphRAG 与混合检索作业")
+        canvas.drawString(17 * mm, height - 11.5 * mm, "银行 GraphRAG 与混合检索项目")
         canvas.drawRightString(width - 17 * mm, 10 * mm, f"第 {document.page} 页")
     canvas.restoreState()
 
@@ -318,14 +318,14 @@ def build() -> None:
         rightMargin=17 * mm,
         topMargin=20 * mm,
         bottomMargin=17 * mm,
-        title="Day35 & Day36 银行 GraphRAG 与混合检索作业",
+        title="Day35 & Day36 银行 GraphRAG 与混合检索项目",
         author="待填写",
         subject="Neo4j GDS, LangGraph, Milvus, NL2SQL and NL2Cypher",
     )
 
     story: list[object] = [
         Spacer(1, 34 * mm),
-        Paragraph("Day35 &amp; Day36 作业", styles["subtitle"]),
+        Paragraph("Day35 &amp; 项目", styles["subtitle"]),
         Spacer(1, 7 * mm),
         Paragraph("银行 GraphRAG 与混合检索", styles["title"]),
         Spacer(1, 5 * mm),
@@ -356,7 +356,7 @@ def build() -> None:
             ),
         ),
         Spacer(1, 18 * mm),
-        Paragraph("姓名：待填写　　班级：AI03　　日期：2026-08-30", styles["subtitle"]),
+        Paragraph("姓名：待填写　　团队：AI03　　日期：2026-08-30", styles["subtitle"]),
         Spacer(1, 4 * mm),
         Paragraph("完整代码、测试、复现手册和真实集成证据随文档提交", styles["subtitle"]),
         PageBreak(),

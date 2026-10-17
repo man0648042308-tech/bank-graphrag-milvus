@@ -1,4 +1,4 @@
-// 仅清理本作业数据；禁止改成 MATCH (n) DETACH DELETE n
+// 仅清理本项目数据；禁止改成 MATCH (n) DETACH DELETE n
 MATCH (n {dataset_id: 'day3536'}) DETACH DELETE n;
 
 CREATE CONSTRAINT day3536_customer_id IF NOT EXISTS

@@ -91,7 +91,7 @@ class MilvusHybridAdapter:
             for product in products
         ]
         result = self.client.insert(self.collection_name, rows)
-        # Milvus 默认可能采用最终一致性；显式 flush 让紧随其后的教学验收可重复。
+        # Milvus 默认可能采用最终一致性；显式 flush 让紧随其后的技术演示验收可重复。
         self.client.flush(self.collection_name)
         return int(result["insert_count"])
 

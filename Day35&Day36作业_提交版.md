@@ -1,12 +1,12 @@
-# Day35 & Day36 作业：银行 GraphRAG 与混合检索
+# 项目 项目：银行 GraphRAG 与混合检索
 
-姓名：待填写  
-班级：AI03  
+姓名：待填写
+团队：AI03
 日期：2026-08-30
 
-> 说明：本文实验数据均为虚构教学数据。完整源码、Cypher、SQL、测试与验收记录随文档一并提交。
+> 说明：本文实验数据均为虚构技术演示数据。完整源码、Cypher、SQL、测试与验收记录随文档一并提交。
 
-本文按原题顺序覆盖：Dijkstra 与 PageRank 总结、Louvain 实践、GraphRAG 三项扩展、Milvus 混合检索、10 道面试题、Cypher 全练习、NL2SQL 和 NL2Cypher。
+本文按原始需求顺序覆盖：Dijkstra 与 PageRank 总结、Louvain 实践、GraphRAG 三项扩展、Milvus 混合检索、10 道面试题、Cypher 全示例、NL2SQL 和 NL2Cypher。
 
 - 图算法：真实 Neo4j 5.26 + GDS 2.13.12 + APOC 5.26.30。
 - 工作流：LangGraph 1.2.11，五个节点和显式状态。
@@ -17,7 +17,7 @@
 - 可复现性：提供 PowerShell 启停脚本、完整复现手册和错误记录。
 - 能力边界：AI 验证不等于个人掌握，闭卷训练另附。
 
-## 一、Dijkstra 与 PageRank 学习总结
+## 一、Dijkstra 与 PageRank 技术总结
 
 ### 1. Dijkstra 最短路径
 
@@ -191,7 +191,7 @@ RRF 只用名次，避免不同通道分数量纲不一致；加权融合先归�
 
 先分段计时 Embedding、每路召回、图查询、重排和模型生成，再检查索引、过滤选择性、top_k、连接池、批处理和缓存，并记录 P50/P95/P99。不要先盲目换大模型。
 
-## 六、Cypher 全部练习
+## 六、Cypher 全部示例
 
 完整可运行答案位于：
 
@@ -200,7 +200,7 @@ RRF 只用名次，避免不同通道分数量纲不一致；加权融合先归�
 - `cypher/03_Dijkstra_PageRank_Louvain.cypher`
 - `cypher/04_验收断言.cypher`
 
-覆盖基础查询、条件过滤、幂等创建、更新/删除候选、多跳关系、聚合、`OPTIONAL MATCH`、`CALL` 子查询、APOC Map、APOC 日期、Dijkstra、PageRank、Louvain 和 Node Similarity。为保护验收数据，原删除练习改为“返回将被删除的候选”，未执行破坏性删除。
+覆盖基础查询、条件过滤、幂等创建、更新/删除候选、多跳关系、聚合、`OPTIONAL MATCH`、`CALL` 子查询、APOC Map、APOC 日期、Dijkstra、PageRank、Louvain 和 Node Similarity。为保护验收数据，原删除示例改为“返回将被删除的候选”，未执行破坏性删除。
 
 ## 七、NL2SQL 模块
 
@@ -251,5 +251,5 @@ LIMIT 100
 3. 金融硬规则必须放在确定性代码中的原因：________________________。
 4. 本次遇到的一个错误、根因和修复：________________________________。
 
-本人确认：文档中的运行结果已在个人环境复核；能够说明核心流程与安全边界。  
+本人确认：文档中的运行结果已在个人环境复核；能够说明核心流程与安全边界。
 签名：____________　日期：____________

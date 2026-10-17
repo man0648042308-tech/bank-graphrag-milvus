@@ -1,7 +1,7 @@
 """Deterministic four-dimensional teaching embeddings.
 
 The dimensions represent safety, growth, liquidity, and return preference.  A real
-project can replace this module with BGE, while the homework remains reproducible.
+project can replace this module with BGE, while the project remains reproducible.
 """
 
 import math

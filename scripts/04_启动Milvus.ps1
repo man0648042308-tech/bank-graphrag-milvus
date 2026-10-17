@@ -16,7 +16,7 @@ foreach ($volumeName in @(
     docker volume create $volumeName | Out-Null
 }
 
-Write-Host "[1/3] 启动本作业专用 Milvus 2.6.17（宿主机端口 19531）"
+Write-Host "[1/3] 启动本项目专用 Milvus 2.6.17（宿主机端口 19531）"
 docker compose -f compose.milvus.yml up -d
 if ($LASTEXITCODE -ne 0) { throw "Milvus 容器启动失败" }
 
